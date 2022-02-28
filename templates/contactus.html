@@ -1,0 +1,110 @@
+{% extends "header_footer.html" %}
+{% load static %}
+{% block content %}
+        <style>
+            .headingtext{
+    background-image:url("{% static 'headingpage.jpg' %}");
+    height:350px;
+    margin-top:120px;
+    background-size:cover;
+    color:white;
+}
+.inner{
+    background-color:rgba(0,0,0,0.3);
+    font-size:40px;
+    height:350px;
+    text-align: center;
+}
+            .redbg{
+                background-color:#cc0c0c;
+                color:white;
+                height:200px;
+            }
+            .sh{
+            font-family:Arial Narrow bold;
+            font-size:23px;
+            padding-top:25px;
+            text-decoration:underline;
+         }
+         .f{
+             font-family:fantasy;
+         }
+         .col-md-3{
+             font-family:cursive;
+             font-size:18px;
+         }
+         .formbg{
+             background-color:rgba(0,0,0,0.2);
+             
+         }
+         .c{
+            border-bottom:2px solid red;
+        }
+        .C a:visited{
+           color:red;
+        }
+        .btn{
+            background-color:blue;
+        }
+        .btn:hover{
+            color:red;
+        }
+        </style>       
+   {% if message %}
+     <script>
+         alert("{{message}}");
+     </script>
+   {% endif %}
+        <!-- <div class="container-fluid"> -->
+            <!-- <div class="col-md-12"> -->
+                <div class="headingtext">
+                    <div class="inner">
+                        <br><br>
+                      <h1 style="font-family:fantasy;">CONTACT US</h1>
+                    <span style="color:yellow;font-size:18px;font-weight:bold"><a href="{% url 'home' %}" style="text-decoration:none;">HOME</a>|CONTACT US</span>
+                  </div>
+                </div>
+            <!-- </div> -->
+        <!-- </div> -->
+        <div class="col-md-12 redbg text-center">
+            <div class="row">
+            <div class="col-md-3 col-xs-12">
+             <div class="sh f">ADDRESS</div>
+             2605 Green City,Mohali<br>Punjab,India
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <div class="sh f">OPENING HOURS</div>
+                Mon-Sun<br>
+                8am-9pm
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <div class="sh f">PHONE</div>
+                +91 8246454582<br>
+                +91 5454544596
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <div class="sh f">Email</div>
+                foodplanet@demo.com
+            </div>
+            </div>
+        </div><br>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-7 pl-0">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.6914333754125!2d76.7087051146099!3d30.698956794311762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fef79f5f32513%3A0xca5f9a7f58c3b22a!2sRS%20Vaishno%20dhaba!5e0!3m2!1sen!2sin!4v1628410732489!5m2!1sen!2sin" 
+        width="700" height="450" style="border:0;" class="ml-5" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <div class="col-md-5 formbg">
+        <br>
+        <center><h3>ASK A QUESTION</h3></center><br>
+        <form name="contact" class="form-group px-0 ml-0" method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Name" class="form-control" name="name"><br>
+            <input type="email" placeholder="Email" class="form-control" name="email"><br>
+            <textarea cols="20" rows="4" class="form-control" placeholder="Message" name="message"></textarea><br>
+            <center><button type="submit" class="btn btn-lg" style="color:white">Send Message</button></center>
+        </form>
+    </div>
+    </div>    
+    </div>
+        {% endblock %}

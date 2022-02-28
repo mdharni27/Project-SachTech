@@ -1,0 +1,169 @@
+{% extends "header_footer.html" %}
+{% load static %}
+{% block content %}
+<style>
+    .headingtext{
+    background-image:url("{% static 'headingpage.jpg' %}");
+    height:350px;
+    margin-top:120px;
+    background-size:cover;
+    color:white;
+}
+.inner{
+    background-color:rgba(0,0,0,0.3);
+    font-size:40px;
+    height:350px;
+    text-align: center;
+}
+    a:link{
+        color:yellow;
+    }
+    a:visited{
+        color:gold;
+    }
+    a:hover{
+        color:white;
+    }
+    .bg{
+        background-color: white;
+        background-size: cover;
+        height: 350px;
+    }
+    .box{
+        background-color: #a50404;
+        color: white;
+        height: 185px;
+        width: 340px;
+        padding: 50px;
+        margin-top: 50px;
+        float: left;
+        text-align: center;
+    }
+    h3{
+        font-weight: bolder;
+    }
+    .reservation{
+        background-color: #a50404;
+        background-repeat: no-repeat;
+        height:100%;
+        width: 100%;
+        display: block;
+        justify-content: center; 
+        text-align: center;
+        color: white;
+        font-family: cursive;
+        font-size: 30px;
+    }
+    .form-control{
+        background-color: #f5f4ef;
+        margin-top:10px;
+    }
+    input{
+        height:50px;
+    }
+    .r{
+            border-bottom:2px solid red;
+        }
+        .R a:visited{
+          color:red;   
+        }
+    </style>
+    {% if message %}
+      <script>
+          alert("{{message}}")
+      </script>
+    {% endif %}
+    
+                    <div class="headingtext">
+                        <div class="inner">
+                            <br><br>
+                            <h1 style="font-family:fantasy;">RESERVATION</h1>
+                            <span style="color:rgb(255, 255, 0);font-size:18px;font-weight:bold"><a href="{% url 'home' %}" style="text-decoration:none;">HOME</a> | RESERVATION</span>
+                        </div>
+                        </div>
+                <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-4">
+                        <div class="box">
+                            <h3>CALL US</h3>
+                            <p>
+                                +91 8246454582<br>
+                                +91 5454544596
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-4">
+                        <div class="box" style="background-color:rgba(255, 217, 0, 0.938);color:black;">
+                            <h3>VISIT US</h3>
+                            <p>
+                                2605 Green City, Mohali<br>
+                                   Punjab,India
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-4">
+                        <div class="box" style="background-color:gainsboro;color:black;">
+                            <h3>EMAIL US</h3>
+                            <p>
+                                foodplanet@demo.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="container-fluid">
+                <div class="row" style="margin-top:50px;">
+                    <div class="reservation">
+                        <div class="col-md-12 mt-5">
+                            <h1 style="font-weight: 400;">
+                                Table Reservation
+                            </h1>
+                            <p style="color: orange;" class="mt-4">
+                            Make Online Reservation<br>
+                            </p>
+                            <h4>
+                            Nothing brings people together like good food<br>
+                            And the people who love to eat are always the best!<br>
+                            </h4>
+                            <p style="font-size: 20px; color: orange;">
+                            So book a table here, which is quiet easy and will take just a couple of minutes.
+                            You can call us, e-mail us or book using this form. Whatever suits you the best!
+                        </p>
+                        <div class="container">
+                        <form name="reservation" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12"> 
+                                        <input type="text" placeholder="Enter Your Name" 
+                                        class="form-control" name="name">
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <input type="date" placeholder="Date"
+                                        class="form-control" name="date">
+                                    </div>
+                                
+                                    <div class="col-md-6 col-sm-12">
+                                        <input type="number" placeholder="Phone Number"
+                                        class="form-control" name="phone">
+                                        <div class="col-md-12 col-sm-12 px-0">
+                                            <input type="email" placeholder="Email"
+                                            class="form-control" name="email">
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-md-6 col-sm-12">
+                                        <input type="email" placeholder="Email"
+                                        class="form-control">
+                                    </div> -->
+                                    <div class="col-md-6 col-sm-12">
+                                        <textarea rows="4" cols="6" class="form-control" placeholder="Enter your Notes" name="text"></textarea>
+                                    </div>
+                                   </div> 
+                                  <button class="btn btn-warning btn-lg mx-auto mt-4">Submit</button>
+                            
+                        </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+{% endblock %} 

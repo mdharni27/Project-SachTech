@@ -1,0 +1,145 @@
+{% extends "header_footer.html" %}
+{% load static %}
+{% block content %}
+        <style>
+            .navbar img{
+                height:100px;
+                width:120px;
+            }
+             .log{
+            background-color: rgba(0,0,0,0.6);
+        }
+        label{
+            color:white;
+        }
+        a:link{
+            color:white;
+        }
+        a:visited{
+            color:white;
+        }
+        a:hover{
+            color:yellow;
+        }
+        .acc{
+            margin-left:285px; 
+        }
+        body{
+            background:url("{% static 'signup.jpg' %}");
+            background-size:cover;
+            margin-top:80px;
+        }
+        
+        .row{
+            margin:auto;
+        }
+        .btn{
+            background-color:#e68405;
+        }
+        .btn:hover{
+            background-color:red;
+        }
+        footer{
+            background-color:white;
+        }
+        .s{
+            border-bottom:2px solid red;
+        }
+        .S a:visited{
+             color:red;
+        }
+        input{
+            margin-bottom:-10px;
+        }   
+        </style>
+        {% if status %}
+         <script>
+             alert('{{status}}')
+         </script>
+        {% endif%}
+        <div class="container" >
+            <div class="row">
+                <div class="col-md-7 log mx-auto" style="margin-top:20px;">
+                    <h1 style="color:white; text-align:center; margin-top:20px; margin-bottom:-7px;font-family: montserrat, sans-serif; font-weight: bold;">Sign Up</h1><br>
+                    <form action="" name="signup" id="signup" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-10">
+                                <div id="res" class="text-primary"></div>
+                                <div id="msz"></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Name</label>
+                                    <input type="text" placeholder="Name" id="name" name="name" class="form-control" pattern="[A-Za-z\s]+" title="name must contain capital" required>
+                                </div>
+                                <div class="col-md-12 mt-4">
+                                    <label>Email</label>
+                                    <input type="email" placeholder="Email" id="email" name="email" class="form-control" onkeyup="check_email()">
+                                </div>
+                                <div class="col-md-12 mt-4">
+                                    <label>Password</label>
+                                    <input type="password" placeholder="Password" id="password" name="password" class="form-control" required>
+                                </div>
+                                <div class="col-md-12 mt-4">
+                                    <label>Confirm Password</label>
+                                    <input type="password" placeholder="Confirm Password" id="cpassword" name="cpassword" class="form-control" onkeyup="check()" required>
+                                </div>
+                                <div class="col-md-12" style="margin-top:18px;">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                        <input type="checkbox" value="Remember Me" style="color:white;">&nbsp;<span style="color:white">Remember Me</span>
+                                        </div>
+                                        <div class="col-md-6 ">
+                                        <a href="" class="ml-5" data-toggle="modal" data-target="#modal">Already registered?</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="col-md-12 mt-3">
+                            <button type="submit" style="margin-bottom:20px" class="btn btn-block"><b style="color:white">SIGN UP</b></button>
+                            </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div><br><br><br><br><br><br>
+        <script>
+            function check()
+            {   event.preventDefault();
+                var p1=document.getElementById("password").value;
+                var p2=document.getElementById("cpassword").value;
+                if(p1==p2)
+                {
+                  document.getElementById("res").innerHTML="<div class='alert alert-success'>Password Matched</div>";
+                  $("button").attr('disabled',false);
+                }
+                else{
+                    $('#res').html("<div class='alert alert-danger'>Password Does not Match</div>");
+                    $("button").attr('disabled',true);
+                }
+            }
+            function check_email()
+            {
+                var email=document.getElementById("email").value;
+                $.ajax({
+                    url:'{% url "check_user" %}',
+                    type:'get',
+                    data:{usern:email},
+                    success:function(data)
+                    {
+                        console.log(data);
+                        if(data.status==0){
+                    $("#signup").attr('disabled',false).css({'background':'rgba(0,0,0,0.1)'});
+                    $('#msz').html('');
+                    }else{
+                    $("#signup").attr('disabled',true).css({'background':'red'});
+                    $('#msz').html("<small>"+data.message+"</small>");
+
+                    }
+                   
+                    }
+                })
+            }
+        </script>
+{% endblock%}

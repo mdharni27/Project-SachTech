@@ -1,0 +1,14 @@
+{% extends "header_footer.html" %}
+{% load static %}
+{% block content %}
+<section style="padding-top:100px;">
+
+    <div style="width:50%;margin:60px auto;">
+        <div style="text-align: center;">
+            <img src="{% static 'fail3.gif' %}" style="height: 350px;">
+            <h2 style="margin-bottom: 60px;">Payment Failed!</h2>
+            <a href="/dashboard" class="mu-send-msg-btn" >Click Here to Visit Profile</a>
+        </div>
+    
+</section>
+{% endblock %}

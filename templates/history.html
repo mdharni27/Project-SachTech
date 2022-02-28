@@ -1,0 +1,86 @@
+{% extends "header_footer.html" %}
+{% load static %}
+{% block content %}
+    <style>
+      .headingtext{
+    background-image:url("{% static 'headingpage.jpg' %}");
+    height:350px;
+    margin-top:120px;
+    background-size:cover;
+    color:white;
+}
+.inner{
+    background-color:rgba(0,0,0,0.3);
+    font-size:40px;
+    height:350px;
+    text-align: center;
+}
+      .btn:hover{
+        background-color:yellow;
+        color:black;
+      }         
+      a:visited{
+        color:white;
+      }
+      a:hover{
+        color:black;
+      }
+      .btn{
+        background-color:red;
+      }
+      .a{
+        border-bottom:2px solid red;
+      }
+      .A a:visited{
+       color:red;
+      }
+    </style>
+                <div class="headingtext">
+                    <div class="inner">
+                        <br><br>
+                      <h1 style="font-family:fantasy;">OUR HISTORY</h1>
+                    <span style="color:yellow;font-size:18px;font-weight:bold"><a href="{% url 'home' %}" style="text-decoration:none;">HOME</a>|ABOUT US|HISTORY</span>
+                  </div>
+                </div>
+            <br>
+        <div class="container">
+        <center><img src="{% static 'tomato.png' %}"><br><h2 style="font-family:Lora;color:red;margin-top:15px;">Our Story</h2></center><br>
+        <h3 style="font-family:fantasy;">WE’RE COMMITTED TO BRINGING OUR CUSTOMERS HEALTHY, DELICIOUS, AND INNOVATIVE FOOD..</h3>
+        <br><div class="row">
+        <div class="col-md-6">
+        Food Planet started its journey way back in 1996.when the proprietor opened 
+        his first fast food shop. It was gigantically fruitful and this driven him to begin
+        expand the restaraunt, and add more items to the menu.</div> 
+        <div class="col-md-6">
+        The experiment paid off and
+        today Food Planet is one of the most famous restaraunts around the globe.We support both online as well as
+        offline booking and delivery of food.
+       </div>
+        <img src="{% static 'aboutus.jpg' %}" style="margin-top:25px;margin-bottom:20px;">
+        </div>
+        <center><h2 style="font-family:Lora;color:red;">Focus on Quality</h2></center><br>
+        <h3 style="font-family:fantasy;">FOOD PLANET IS PROUD TO BE SERVING FINE EUROPEAN DISHES FOR MORE THAN 25 YEARS!</h3>
+        <br><div class="row">
+        <div class="col-md-6">
+       Our main priority is quality.We never compromise on the quality of food that we serve to our customers.
+       We believe that there is a special bond between the customer and us, which should never be broken in any way.
+      </div> 
+        <div class="col-md-6">
+       We value your trust and your health means a lot to us.We deliver fresh food straight from the oven..
+       </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+         <img src="{% static 'tomatojuice.jpg' %}">   
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'pic2.jpg' %}" width="370px" height="428px">   
+           </div>
+           <div class="col-md-4">
+            <img src="{% static 'sticks.jpg' %}">   
+           </div>
+           <button class="btn btn-lg btn-warning mx-auto" style="margin-top:22px;font-weight:bold"><a href="{% url 'menu' %}" style="color:white;">View Menu</a></button>
+    </div>
+    </div>
+
+{% endblock %}

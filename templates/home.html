@@ -1,0 +1,387 @@
+        {% extends "header_footer.html" %}
+        {% load static %}
+        {% block content %}
+        <style>
+            .col-md-4 img:hover{
+             width:290px;
+             height:240px;
+             box-shadow:10px 10px 20px red;
+         }
+            .col-md-3 a:link{
+                color:black;
+            }
+            .col-md-3 a:visited{
+                color:black;
+            }
+            .col-md-3 a:hover{
+                color:red;
+            }
+           .col-md-3 a:active{
+                text-decoration:underline;
+                color:red;
+            }
+            .btn a:link{
+               color:white;
+            }
+        
+            .btn a:visited{
+                color:black;
+            }
+            .btn a:hover{
+                color:white;
+            }
+            .lin{
+                position:relative;
+                right:18px;
+                top:10px;
+            }
+            .cover{
+                background-image:url("{% static 'foodtable.jpg' %}");
+                background-size:cover;
+                height:480px;
+                margin-top:150px;
+            }
+            .bg{
+                background-color:rgba(0,0,0,0.3);
+                margin-top:-25px;
+                height:480px;
+            }
+         .btn:hover{
+             background-color:red;
+             color:white;
+         }
+         .navbar-toggler-icon{
+             border:1px solid black;
+         }
+         .redbg{
+             color:white;
+             background-color:#fa0515;
+             height:150px;
+         }
+         
+         .hov img:hover{
+            height:450px;
+            width:640px;
+            box-shadow:1px 1px 0px red;
+         }
+         .outer{
+             background-image:url("{% static 'pizza.jpg' %}");
+             height:400px;
+             /* background-size:cover; */
+             /* width:600px; */
+         }
+         .inner{
+             background-color:rgba(0,0,0,0.4);
+             color:white;
+            width:100%;
+            height:0%;
+            font-size:50px;
+            overflow:hidden;
+            transition:0.5s;
+            text-align:center;
+         }
+         .outer:hover .inner{
+             height:90%;
+             width:100%;
+         }
+         .outer2{
+             background-image:url("{% static 'burger.jpg' %}");
+             /* width:590px; */
+             background-size:cover;
+             height:500px;
+             overflow:hidden;
+         }
+         .outer2:hover .inner{
+                 height:100%;
+                 
+         }
+         .menu{
+             width:280px;
+             height:230px;
+             border-radius:20%;
+         }
+         .desc{
+             position:relative;
+             top:-70px;
+         }
+         b{
+             font-size:15px;
+         }
+         .content{
+             position:relative;
+             left:288px;
+             top:-100px;
+         }
+         del{
+             color:red;
+         }
+         .col-md-4 img:hover{
+             width:290px;
+             height:240px;
+             box-shadow:10px 10px 20px red;
+         }
+         .footer img{
+            width:100px;
+            height:100px;
+            margin-left:25px;
+            margin-top:-20px;
+         }
+         .sp{
+             word-spacing:2px;
+         }
+         
+         .carousel-indicators li{
+             border-radius:50%;
+             width:10px;
+             height:10px;
+         }
+         .cover2{
+             background-image:url("{% static 'pizzacover.jpg' %}");
+            position:relative;    
+            height:605px;
+            width:100%; 
+            text-align: center;
+
+         }
+         .bg2{
+             background-color:rgba(0,0,0,0.4);
+             color:white;
+             height:605px;
+             font-size:60px;
+         }
+         .cover3{
+             background-image:url("{% static 'reservation2.jpg' %}");
+             height:605px;
+             width:100%;
+             background-size:cover;
+         }
+         .bg3{
+             background-color:rgba(0,0,0,0.4);
+             height:605px;
+             font-size:60px;
+             color:yellow;
+             text-transform:uppercase;
+         }
+         .fa-hamburger{
+             font-size:40px;
+         }
+         .bg3 button{
+            background:#d60d10;
+         }
+         .bg3 button:hover{
+            background:#fa0515;
+         }
+         .testbg{
+            background-image:url("{% static 'testimonialbg.jpg' %}");
+            height:570px;
+            margin-top:-40px;
+            background-repeat:no-repeat;
+         }
+         .testbgtext{
+             background-color:rgba(0,0,0,0.4);
+             color:white;
+             height:570px;
+            }
+            .modal-dialog{
+                max-width: 1000px;
+            }
+            input[type='email']{
+                font-size:20px;
+            }
+            input[type='password']
+            {
+                font-size:20px;
+            }
+            .change{
+                text-transform:capitalize;
+                word-spacing:3px;
+            }
+            .dropdown-menu{
+                background-color:#ffdc17;
+            }
+            .dropdown-item{
+                font-weight:bold;
+            }
+           
+            #modelMarquee{
+                display: block;
+                position: relative;
+                animation: animateText 1s linear infinite alternate;
+            }
+            @keyframes animateText {
+                0%{left:100px;}
+                100%{left:500px;}
+            }
+            .home{
+                border-bottom:2px solid red;
+            }
+            .h a:visited{
+              color:red;   
+            }
+        </style> 
+        {% if action %}
+     <script>
+        $(document).ready(function(){
+        $("#modal").modal('show');
+    });
+          </script> 
+          {% endif %}
+      <!-- <div style="height:200px;"></div> -->
+      <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12 my-3 text-center ">
+                <div class="carousel slide" data-ride="carousel" id="myslider">
+                    <!--Carousel Indicators-->
+                    <ul class="carousel-indicators">
+                    <li class="active" data-slide-to="0" data-target="#myslider"></li>    
+                    <li data-slide-to="1" data-target="#myslider"></li>
+                    <li data-slide-to="2" data-target="#myslider"></li>
+                    </ul>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active cover">
+                            <div class="bg">
+                <p style="color:yellow;text-align:center;font-family:Brush Script MT;font-size:40px;padding-top:100px;">Welcome to the #1 Food Restraunt</p>
+                <p style="color:white;text-align:center;font-size:50px;text-transform: uppercase;font-family:fantasy;padding-bottom:12px;">Traditional Cooking with a Modern Twist!</p>  
+                <a href="{% url 'history' %}"><button class="btn btn-warning btn-lg mt-2" style="height:70px;"><p style="font-family:Arial Narrow;font-weight:bold;padding:5px;text-transform:uppercase;margin-top:5px;">Read About Us</p></button></a>    
+                           </div> 
+                        </div>
+               <div class="carousel-item">
+                   <div class="cover2">   
+                        <div class="bg2 text-center">
+                    <p style="position:relative;top:250px;font-weight:bold;">Flat 50% Off on your favorite Pizza!!</p><br>
+                            <a href="{% url 'dish' id=19 %}"<button class="btn btn-lg btn-danger" style="margin-top:180px;">Order Now</button></a>
+                        </div>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <div class="cover3">
+                    <div class="bg3 text-center">
+                   <p style="position:relative;top:250px;font-weight:bold;font-family:Bradley Hand, cursive;">Get your Table Reserved!!</p>
+                   <a style="color:white" href="{% url 'reservation' %}"><button class="btn btn-lg btn-warning" style="margin-top:270px;width:180px;text-transform:uppercase;color:white;">Reserve</button></a>   
+                </div>
+            </div> 
+            </div>
+              <!--Carousel Controls-->
+              <a href="#myslider" class="carousel-control-prev" data-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a href="#myslider" class="carousel-control-next" data-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+              </a>
+
+            </div>
+          </div>   
+      </div>
+       </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <p style="font-size:32px;text-transform:uppercase;font-weight:bold;margin-top:55px;">The perfect place to enjoy life and food at the same time..</p>
+            <div class="outer2">
+                <div class="inner"><br><br>
+                    <span>Upto 40% off!!<br>
+                        {% if user.is_authenticated %}
+                        <button class="btn btn-lg btn-danger"><a href="{% url 'dish' id=18 %}" style="color:white;">Order Now</a></button>
+                        {% else %}
+                        <button class="btn btn-lg btn-danger"><a href="#" data-toggle="modal" data-target="#modal">Order Now</a></button>  
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-5 hov">
+            <div class="outer">
+                <div class="inner mt-2"><br><br>
+            Get upto 50% off<br>
+            {% if user.is_authenticated %}
+                        <button class="btn btn-lg btn-danger"><a href="{% url 'dish' id=19 %}" style="color:white;">Order Now</a></button>
+                        {% else %}
+                        <button class="btn btn-lg btn-danger"><a href="#" data-toggle="modal" data-target="#modal">Order Now</a></button>  
+                        {% endif %}
+            </span>
+            </div>  
+         </div>
+         <span style="font-size:32px;text-transform:capitalize;font-weight:bold;position:relative;top:20px;">Order your favorite food online with exciting offers!!</span>
+        <div style="font-size:20px;position:relative;top:30px;">With Food Planet you get quality food, with the best offers that won't hurt your wallet. So, order your Favorite Food Now...</div>
+        </div>
+</div>
+</div>
+<hr>
+<br>
+<br>
+<div class="container-fluid px-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{% static 'thali.jpg' %}" class="menu">
+        <span class="desc">
+            <b>SPECIAL THALI</b>
+          <span class="content">Kadai Panner,<br>raita,chole,<br>4 roti+rice,<br>dal makhani</span><br>
+          <b><span class="content"><del><i class="fas fa-rupee-sign"></i>150</del>&nbsp;&nbsp;<i class="fas fa-rupee-sign"></i>100 </span></b>
+        </span>
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'chinese.jpg' %}" class="menu">
+            <b style="position:relative;top:-70px;">CHINESE <span style="position:relative;left:350px;top:-129px;">NOODLES</span></b>
+            <span style="position:relative;left:215px;top:-160px;">Chinese Noodels<br><span style="position:relative;left:75px;">and fast food.</span></span>
+           <br><br><b><span style="position:relative;left:290px;top:-160px;"><del><i class="fas fa-rupee-sign"></i>120</del>&nbsp;&nbsp;<i class="fas fa-rupee-sign"></i>80 </span></b>
+        </div>
+        <div class="col-md-4 px-4">
+            <img src="{% static 'sweets2.jpg' %}" class="menu">
+            <b style="position:relative;top:-70px;">SWEETS</span></b>
+            <span style="position:relative;left:285px;top:-160px;">Rasgulla,<br>Barfi,<br>Gulab Jamun</span>
+            <br><br><b><span style="position:relative;left:290px;top:-160px;"><del><i class="fas fa-rupee-sign"></i>130</del>&nbsp;&nbsp;<i class="fas fa-rupee-sign"></i>60 </span></b>           
+</div>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <button class="btn btn-lg btn-warning ml-auto" style="position:relative;top:-88px;font-weight:bold;"><a href="{% url 'menu' %}">MENU</a></button>
+    <hr>
+    <div class="container-fluid ">
+        <div class="col-md-12">
+            <div class="testbg">
+                 <div class="testbgtext">
+                     <p style="font-family:fantasy;font-size:50px;padding-top:120px;padding-left:60px;">"TESTIMONIALS</p>
+                       <div class="carousel slide" data-ride="carousel" id="slider">
+                           <ul class="carousel-indicators">
+                            <li class="active" data-slide-to="0" data-target="#slider"></li>
+                            <li data-slide-to="1" data-target="#slider"></li>
+                            <li data-slide-to="2" data-target="#slider"></li>
+                           </ul>
+                         <div class="carousel-inner">
+                             <div class="carousel-item active"> 
+                                 <div class="col-md-8">
+                                 <p style="font-size:30px; margin-left:30px;margin-top:70px;">"We got catering for our wedding.The food was delicious! The 
+                                     catering service was implecable..."                                    
+                                 </p>
+                                 <p style="color:yellow;margin-left:50px;font-size:25px;font-weight:bold">-ANANYA</p>
+                                 </div>
+                              </div>
+                                              
+                              <div class="carousel-item"> 
+                                <div class="col-md-8">
+                                <p style="font-size:30px; margin-left:30px;margin-top:70px;">"The best place to enjoy the food..The resturant lives upto
+                                    expectations...."                                    
+                                </p>
+                                <p style="color:yellow;margin-left:50px;font-size:25px;font-weight:bold">-MANISH</p>
+                                </div>       
+                             </div>
+                             <div class="carousel-item"> 
+                                <div class="col-md-8">
+                                <p style="font-size:30px; margin-left:30px;margin-top:70px;">"One of the best place to visit if you are a food lover.
+                                    Great Taste.Great Service.Reasonable Cost.Totally worth it...."                                    
+                                </p>
+                                <p style="color:yellow;margin-left:50px;font-size:25px;font-weight:bold">-GARIMA</p>
+                                </div>       
+                             </div>
+                            <a href="#slider" class="carousel-control-next" data-slide="next">
+                               <span class="carousel-control-next-icon"></span>
+                           </a>
+                        
+                         </div>
+                     </div> 
+                    </div>          
+             </div>
+        </div>
+   </div>
+        
+{% endblock %}       

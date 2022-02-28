@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Food Planet</title>
+        <meta name="viewport" content="width=device-width" initial-scale="1">
+        <link rel="stylesheet" href="{% static 'bootstrap-4.0.0-dist/css/bootstrap.min.css' %}">
+        <script src="{% static 'jquery.js' %}"></script>
+        <script src="{% static 'bootstrap-4.0.0-dist/js/bootstrap.min.js' %}"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'loginstyle.css' %}">
+        
+    <style>
+             body{
+                 overflow-x:hidden;
+            }
+            .navbar img{
+                width:195px;
+                height:170px;
+                padding-top:12px;
+
+            }
+            ul{
+                text-transform:uppercase;
+                font-family:Arial Narrow, sans-serif;
+                font-weight:bolder;
+                font-size:17px;
+                word-spacing:20px;   
+            }
+            
+            nav a:link{
+                color:black;
+            }
+            nav a:visited{
+                color:black;
+            }
+            nav a:hover{
+                color:red;
+                border-bottom: 2px solid red;
+            }
+           nav a:active{
+                text-decoration:underline;
+                color:red;
+            }
+            .col-md-3 a:link{
+                color:black;
+            }
+            .col-md-3 a:visited{
+                color:black;
+            }
+            .col-md-3 a:hover{
+                color:red;
+            }
+           .col-md-3 a:active{
+                text-decoration:underline;
+                color:red;
+            }
+            .btn a:link{
+               color:white;
+            }
+        
+            .btn a:visited{
+                color:black;
+            }
+            .btn a:hover{
+                color:white;
+            }
+            .lin{
+                position:relative;
+                right:18px;
+                top:10px;
+            }
+            .cover{
+                background-image:url("{% static 'foodtable.jpg' %}");
+                background-size:cover;
+                height:480px;
+                margin-top:150px;
+            }
+            .bg{
+                background-color:rgba(0,0,0,0.3);
+                margin-top:-25px;
+                height:480px;
+            }
+         .btn:hover{
+             background-color:red;
+             color:white;
+         }
+         .navbar-toggler-icon{
+             border:1px solid black;
+         }
+         .redbg{
+             color:white;
+             background-color:#fa0515;
+             height:150px;
+         }
+         
+         .hov img:hover{
+            height:450px;
+            width:640px;
+            box-shadow:1px 1px 0px red;
+         }
+         .outer{
+             background-image:url("{% static 'pizza.jpg' %}");
+             height:400px;
+             /* background-size:cover; */
+             /* width:600px; */
+         }
+         .inner{
+             background-color:rgba(0,0,0,0.4);
+             color:white;
+            width:100%;
+            height:0%;
+            font-size:50px;
+            overflow:hidden;
+            transition:0.5s;
+            text-align:center;
+         }
+         .outer:hover .inner{
+             height:90%;
+             width:100%;
+         }
+         .outer2{
+             background-image:url("{% static 'burger.jpg' %}");
+             /* width:590px; */
+             background-size:cover;
+             height:500px;
+             overflow:hidden;
+         }
+         .outer2:hover .inner{
+                 height:100%;
+                 
+         }
+         .menu{
+             width:280px;
+             height:230px;
+             border-radius:20%;
+         }
+         .desc{
+             position:relative;
+             top:-70px;
+         }
+         b{
+             font-size:15px;
+         }
+         .content{
+             position:relative;
+             left:288px;
+             top:-100px;
+         }
+         del{
+             color:red;
+         }
+         
+         .footer img{
+            width:100px;
+            height:100px;
+            margin-left:25px;
+            margin-top:-20px;
+         }
+         .sp{
+             word-spacing:2px;
+         }
+         
+         .carousel-indicators li{
+             border-radius:50%;
+             width:10px;
+             height:10px;
+         }
+         .cover2{
+             background-image:url("{% static 'pizzacover.jpg' %}");
+            position:relative;    
+            height:605px;
+            width:100%; 
+            background-size:cover;
+            /* text-align: center; */
+
+         }
+         
+         .bg2{
+             background-color:rgba(0,0,0,0.4);
+             color:white;
+             height:605px;
+             font-size:60px;
+         }
+         .cover3{
+             background-image:url("{% static 'reservation2.jpg' %}");
+             height:605px;
+             width:100%;
+             background-size:cover;
+         }
+         .bg3{
+             background-color:rgba(0,0,0,0.4);
+             height:605px;
+             font-size:60px;
+             color:yellow;
+             text-transform:uppercase;
+         }
+         .fa-hamburger{
+             font-size:40px;
+         }
+         .bg3 button{
+            background:#d60d10;
+         }
+         .bg3 button:hover{
+            background:#fa0515;
+         }
+         .testbg{
+            background-image:url("{% static 'testimonialbg.jpg' %}");
+            height:570px;
+            margin-top:-40px;
+            background-repeat:no-repeat;
+         }
+         .testbgtext{
+             background-color:rgba(0,0,0,0.4);
+             color:white;
+             height:570px;
+            }
+            .modal-dialog{
+                max-width: 1000px;
+            }
+            /* input[type='email']{
+                font-size:20px;
+            } */
+            /* input[type='password']
+            {
+                font-size:20px;
+            } */
+            .change{
+                text-transform:capitalize;
+                word-spacing:3px;
+            }
+            .dropdown-menu{
+                background-color:#ffdc17;
+            }
+            .dropdown-item{
+                font-weight:bold;
+            }
+            #modelMarquee{
+                display: block;
+                position: relative;
+                animation: animateText 1s linear infinite alternate;
+            }
+            @keyframes animateText {
+                0%{left:100px;}
+                100%{left:500px;}
+            }
+            
+             
+    </style>
+</head>
+<body>
+   
+    <header>
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12 fixed-top bg-white">
+              <nav class="navbar  navbar-expand-sm">
+                  <a href="" class="navbar-brand"><img src="{% static 'restrauntlogo.jpg' %}" style="position:relative;left:30px;top:-20px;margin-bottom:-34px;"></a>
+                  <button class="btn-lg navbar-toggler" data-toggle="collapse" data-target="#mymenu">
+                    <i class="fas fa-hamburger"></i>
+                  </button>
+                <div id="mymenu" class="collapse navbar-collapse">
+                  <ul class="navbar-nav mx-auto px-5">
+                      <li class="nav-item h"><a href="{% url 'home' %}" class="nav-link home">Home</a></li>
+                      <li class="nav-item M"><a href="{% url 'menu' %}" class="nav-link m">Menu</a></li>
+                      <!-- <li class="nav-item"><a href="" class="nav-link">Pages</a></li> -->
+                     
+                      {% if user.is_anonymous %}
+                      <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal" data-target="#modal">Login</a></li>
+                      <div id="modal" class="modal fade" data-backdrop="false" style="background-color:rgba(0,0,0,0.5)">
+                          <div class="modal-dialog">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                <p id="modelMarquee" style="word-spacing:3px;text-transform: capitalize;" scrollamount="10">Order your favorite food after signing in..</p>
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  </div>
+                                  <div class="modal-body">
+                                      <div class="container-fluid">
+                                          <div class="row">
+                                              <div class="col-md-7">
+                                                  <img src="{% static 'loginfood.jpg' %}" style="width:525px; height:500px;">
+                                              </div>
+                                             <div class="col-md-5">
+                                                <h1 style="font-family:cursive;color:red;font-weight:bold;">
+                                                    WELCOME BACK!!
+                                                </h1><br>
+                                                <h4 style="text-transform:capitalize;word-spacing:3px;">
+                                                    Sign in with your email address and password
+                                                </h4>
+                                        <form class="form-group" action ="{% url 'login' %}" id="login-form" class="register-form" method="POST">
+                                           {% csrf_token %}
+                                           {% if message %}
+                                           <div class="form-group">
+                                               <p class="alert {{class}}">{{message}}</p>
+                                           </div>
+                                            {% endif %}                                      
+                                            <br>
+                                            <div id="result"></div>
+                                            <input type="text" placeholder="Email" name="email" class="form-control mb-2"required>
+                                            <input type="password" placeholder="Password" name="password" class="form-control"required>
+                                             <br>
+                                            <input type="checkbox"><span style="text-transform:capitalize;word-spacing:3px;"> Remember Me</span>
+                                            &nbsp;&nbsp;&nbsp;<a href="" ><span style="color:grey;text-transform:capitalize;word-spacing:3px;">Forgot Password?</span></a>
+                                            <br><br><button type="submit" class="btn btn-lg btn-success" style="width:120px;">Sign In</button><br>
+                                            <br><span style="text-transform:capitalize;word-spacing:3px;">Don't have an account? <a href="{% url 'signup' %}" style="color:green;">Sign Up</a>
+                                        </form>
+                                                                                  
+                                              </div>
+                                          </div>
+                                      </div>
+                                           
+                                  </div>
+                                  </div>
+                                  </div>
+                                  </div>
+                      <script>
+                           $('.modal').click(function(event){
+                               $(event.target).modal('hide');
+                          })
+                        //   $("#modal").modal("hide");
+                      </script>
+                      <li class="nav-item S"><a href="{% url 'signup' %}" class="nav-link s">SignUp</a></li>
+                      {% endif %}
+                      <li class="nav-item dropdown A"><a href="" class="nav-link sp dropdown-toggle a" data-toggle="dropdown">About Us</a>
+                        <div class="dropdown-menu change">
+                            <a href="{% url 'history' %}" class="dropdown-item">HISTORY</a>
+                            <a href="{% url 'services' %}" class="dropdown-item">SERVICES</a>
+                            <a href="{% url 'team' %}" class="dropdown-item">OUR TEAM</a>
+                            <a href="{% url 'testimonial' %}" class="dropdown-item">TESTIMONIALS</a>
+                            <a href="{% url 'privacy' %}" class="dropdown-item">PRIVACY POLICY</a>
+                        </div>
+                    </li>
+                      <li class="nav-item R"><a href="{% url 'reservation' %}" class="nav-link r">Reservation</a></li>
+                      <li class="nav-item C"><a href="{% url 'contact' %}" class="nav-link c">Contact</a></li>
+                      {% if user.is_authenticated %}
+                      <div class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user"></i></a>
+                      <div class="dropdown-menu">
+                      <a href="{% url 'dashboard' %}" class="dropdown-item">Dashboard</a>    
+                      <a href="{% url 'logout' %}" class="dropdown-item">Logout</a>
+                      </div>
+                      </div>
+                      {% endif %}
+                      <span class="d-none d-sm-block ml-auto" style="position:relative;top:-20px;left:140px;">Follow Us on:</span>&nbsp;
+                      <li class="nav-item"><a href="https://www.facebook.com/" target="_blank" class="nav-link lin" style="color:blue;font-size:18px"><i class="fab fa-facebook-square"></i></a></li>
+                      <li class="nav-item"><a href="https://www.instagram.com" target="_blank" class="nav-link lin" style="color:#fb3958 ;font-size:18px"><i class=" fab fa-instagram"></i></a></li>
+                      <li class="nav-item"><a href="https://www.twitter.com" target="_blank" class="nav-link lin" style="color:blue;font-size:18px"><i class="fab fa-twitter"></i></a></li>    
+                
+                    </ul>      
+              </nav>
+              </div>
+              </div>
+          </div>
+         </header>
+         <section>
+             {% block content%}{% endblock%}
+         </section>
+        <footer>
+          <div class="container-fluid py-4">
+            <div class="row">
+                <div class="col-md-3">
+                 <img src="{% static 'restrauntlogo.jpg' %}" class="footerimg" style="width:185px;height:150px;">
+                </div>
+                <div class="col-md-3">
+                    <b>2605 Green City,Mohali<br>Punjab,India</b>
+                </div>
+                <div class="col-md-3">
+                    <ul type="none">
+                        <li class="sp"><a href="{% url 'history' %}">ABOUT US</a></li>
+                        <li><a href="{% url 'services' %}">SERVICES</a></li>
+                        <li class="sp"><a href="{% url 'contact' %}">CONTACT US</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <b>foodplanet@demo.com</b><br>
+                    <b>+91 8246454582</b>
+                    <a href="https://www.facebook.com/" target="_blank" class="nav-link lin" style="position:relative;left:5px;color:blue;font-size:18px"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="nav-link lin" style="position:relative;left:32px;top:-33px;color:#fb3958 ;font-size:18px"><i class=" fab fa-instagram"></i></a>
+                    <a href="https://www.twitter.com" target="_blank" class="nav-link lin" style="position:relative;left:60px;top:-75px;color:blue;font-size:18px"><i class="fab fa-twitter"></i></a>    
+                </div>
+            </div>
+        </div>
+        </footer>
+        <!-- <script>
+        $(document).ready(function(){
+        $("#modal").modal('show');
+    });
+          </script> -->
+          </body>
+    </html>

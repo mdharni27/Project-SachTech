@@ -1,0 +1,131 @@
+{% extends "header_footer.html"%}
+{% load static %}
+{% block content %}
+        <style>
+            .headingtext{
+    background-image:url("{% static 'headingpage.jpg' %}");
+    height:350px;
+    margin-top:120px;
+    background-size:cover;
+    color:white;
+}
+.inner{
+    background-color:rgba(0,0,0,0.3);
+    font-size:40px;
+    height:350px;
+    text-align: center;
+}
+a:link{
+    color:yellow;
+}
+a:visited{
+    color:yellow;
+}
+a:hover{
+    color:white;
+}
+            .starter img{
+                width:310px;
+                height:270px; 
+                border-radius:7%;
+                border:1px solid;
+                padding:2px;
+            }
+            .starter .btn{
+                width: 310px;
+            }
+            .mc .btn{
+                width:297px;
+            }
+            h4{
+                text-align:center;
+                margin-left:-50px;
+            }
+            .food-item img{
+                width:297px;
+                height:270px; 
+                border-radius:7%;
+                border:1px solid;
+                padding:2px;
+            }
+            .heading{
+                font-family:cursive;
+                color:brown;
+            }
+            /* .outer1{
+                background-image:url("forks3.jpg");
+            }
+            .inner1{
+                background-color:rgba(0,0,0,0.5);
+                height:170px;
+            } */
+            .M a:visited{
+               color:red;
+           }
+           .m{
+                border-bottom:2px solid red;
+            }
+            .heading h2{
+                font-size:35px;
+            }
+            select{
+                font-size:20px;
+            }
+            .ic{
+                font-size:35px;
+                position:relative;
+                top:-11px;
+                float:right;
+                
+            }
+            .notavail{
+                background-color:rgb(206, 183, 183);
+                width:305px;
+            }
+        </style>
+        <div class="headingtext">
+            <div class="inner">
+                <br><br>
+              <h1 style="font-family:fantasy;">MENU</h1>
+            <span style="color:yellow;font-size:18px;font-weight:bold"><a href="home.html" style="text-decoration:none;">HOME</a>|MENU</span>
+          </div>
+        </div>
+            <img src="{% static 'forks2.jpg' %}" class="ml-5 pl-5 mt-2" style="height:200px;float:left;">
+            <img src="{% static 'forks2.jpg' %}" class="mr-5 pr-5 mt-2" style="height:200px;float:right;">
+        <center class="mt-4" style="color:red;font-family:cursive;"><h2 class="pt-2" style="text-decoration:underline;text-decoration-style:dotted;margin-bottom:10px;">Delicious Dishes Waiting For you !!</h2><h2>😋</h2></center>
+        <h1 style="font-family:fantasy;text-align:center;" class="mt-2">CHECK OUT OUR MENU</h1>    
+        
+        <br><br>
+    <!-- <span class="heading"><h2 style="font-weight:bolder;" class="mt-2"><u>STARTERS:</u></h2></span><br> -->
+    <br><div class="row starter">
+        <div class="container">
+            <div class="row">
+            {% for i in dishes %}
+                <div class="col-md-4 col-xs-12">
+                    {% if i.is_available %}
+                    <div class="food-item mt-4">
+                    {% else %}
+                    <div class="food-item notavail mt-4">
+                    {% endif %}
+                        <a href="/media/{{i.image}}" target="_blank"><img src="/media/{{i.image}}"></a>
+                        <h2 class="my-2" style="margin-left:70px;">{{i.name}}</h2>
+                        <!-- <p>
+                            {{i.details}}
+                        </p> -->
+                        <span class="menu-text" style="font-weight: normal;margin-left:90px;font-size:25px;">
+                            
+                                <strong>&#8377;{{i.price}}</strong>
+                                <!-- <strong>&#8377;{{i.price-i.discounted_price}</strong> -->
+                        </span>
+                        
+                        {% if i.is_available %}
+                        <a href="{% url 'dish' id=i.id %}" style="color:white;"><button class="btn btn-danger btn-block" style="color:white">Order Now</button></a>
+                        {% else %}
+                            <p class="text-danger">Not Available for delivery!</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    {% endblock %}

@@ -1,0 +1,108 @@
+{% extends "header_footer.html" %}
+{% load static %}
+{% block content %}
+    <style>
+          .headingtext{
+    background-image:url("{% static 'headingpage.jpg' %}");
+    height:350px;
+    margin-top:120px;
+    background-size:cover;
+    color:white;
+}
+.inner{
+    background-color:rgba(0,0,0,0.3);
+    font-size:40px;
+    height:350px;
+    text-align: center;
+}
+        a:link{
+            color:red;
+        }
+        a:visited{
+            color:red;
+        }
+        a:hover{
+            color:#fce839;
+        }
+        .col-md-4 img:hover{
+              height:570px;
+              width:100%;
+
+        }
+        .a{
+        border-bottom:2px solid red;
+      }
+      .A a:visited{
+       color:red;
+      }
+    </style>
+    
+        
+            <div class="col-md-12 px-0">
+                <div class="headingtext">
+                    <div class="inner">
+                        <br><br>
+                      <h1 style="font-family:fantasy;">OUR TEAM</h1>
+                    <span style="color:yellow;font-size:18px;font-weight:bold"><a href="{% url 'home' %}" style="text-decoration:none;">HOME</a>|ABOUT US|TEAM</span>
+                  </div>
+                </div>
+            </div>
+    
+        <div class="container" style="margin-top:40px;">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 style="font-family:cursive;color:red">Head Chef</h3>
+                    <h1 style="font-family:fantasy">JOHN STROLLER</h1><br>
+                    <span style="font-size:20px;">
+                        John was born on February 21, 1947 in Pula, Istria, in present-day Croatia, a region in that was once part of Italy. 
+                        He immigrated to the U.S. when he was 12 and eventually married, opening up 
+                        a series of restaurants with wife Felice. 
+                        Bastianich has gone on to be an acclaimed chef and restaurateur, winning awards as well as…
+                    <br><br><br>
+                    <h4>EMAIL:</h4>
+                    john@foodplanet.com
+                    <h4 class="mt-5">PHONE:</h4>
+                    98545121021210
+                </span>
+                </div>
+
+                <div class="col-md-6">
+                    <img src="{% static 'headchef.jpg' %}" width="580px" height="580px">
+                </div>
+            </div>
+        </div><br><br>
+        <div class="container-fluid jumbotron">
+            <center><h1 style="font-family:fantasy;margin-bottom:30px;">OUR TEAM</h1></center>
+            <div class="row">
+            <div class="col-md-4">
+             <img src="{% static 'kitchen manger.jpg' %}" height="570px;">
+             <h3 style="text-align:center;font-weight:bold;">JERRY PARKER</h3>
+             <h6 style="text-align:center;font-weight:bold;color:red">KITCHEN MANAGER</h6>
+            </div>
+            <div class="col-md-4 px-0">
+                <img src="{% static 'prepcook2.jpg' %}">
+                <h3 style="text-align:center;font-weight:bold;">SUNITA</h3>
+                <h6 style="text-align:center;font-weight:bold;color:red">PREP COOK</h6>
+               </div>
+               <div class="col-md-4">
+                <img src="{% static 'cashier2.jpg' %}" height="570px">
+                <h3 style="text-align:center;font-weight:bold;">TINA ROBINSON</h3>
+                <h6 style="text-align:center;font-weight:bold;color:red">CASHIER</h6>               
+            </div>
+        </div>
+        </div><br><br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{% static 'joinus.jpg' %}">
+                </div>
+                <div class="col-md-6">
+                  <br><br><br><center><h4 style="font-family:cursive;color:red;">Join FoodPlanet</h4><br>
+                <h1 style="font-family:fantasy;"class="ml-4">BECOME A PART OF OUR FRIENDLY TEAM</h1><br>
+                <span style="font-size:20px;">We are always looking for talented people..</span><br><br>
+                <a href="" style="font-size:20px;font-family:fantasy">JOIN US</a>    
+            </center>
+                </div>
+            </div>
+        </div>
+ {% endblock %}

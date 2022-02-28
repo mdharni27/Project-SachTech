@@ -1,0 +1,120 @@
+{% extends "header_footer.html" %}
+{% load static %}
+{% block content %}
+<style>
+             .headingtext{
+    background-image:url("{% static 'headingpage.jpg' %}");
+    height:350px;
+    margin-top:120px;
+    background-size:cover;
+    color:white;
+}
+.inner{
+    background-color:rgba(0,0,0,0.3);
+    font-size:40px;
+    height:350px;
+    text-align: center;
+}
+        a:link{
+            color:yellow;
+        }
+        a:visited{
+            color:yellow;
+        }
+        a:hover{
+            color:white;
+        }
+
+        .services{
+            background-color: rgb(148, 12, 12);
+            background-repeat: no-repeat;
+            height: 500px;
+            width: 100%;
+            display: block;
+            /*  justify-content: center;  */
+            text-align: center;
+            color: white;
+            font-family: cursive;
+            font-size: 35px;
+            margin-top: 40px;
+        }
+        .text{
+            font-family: cursive;
+            font-size: 20px;
+        }
+        </style>
+    </head>
+    <body>
+                <div class="headingtext">
+                    <div class="inner">
+                        <br><br>
+                      <h1 style="font-family:fantasy;">SERVICES</h1>
+                    <span style="color:yellow;font-size:18px;font-weight:bold"><a href="{% url 'home' %}" style="text-decoration:none;">HOME </a>|SERVICES</span>
+                </div>
+              </div>
+              <br><br>
+              <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-6">
+                  <img src="{% static 'servicesimg.jpg' %}">
+              </div>
+              <div class="col-md-6">
+                  <h2 style="color: rgb(255, 165, 0);">OUR SERVICES</h2>
+                  <h2 class="text">What we offer</h2>
+              
+              <div class="row">
+                  <div class="col-md-6 mb-4">
+                      <img src="{% static 'birthday.png' %}" class="mb-2">
+                      <h5 class="text">BIRTHDAY PARTIES</h5>
+                      <p class="mt-sm-12">The more you praise and celebrate your life, the more there is in life to celebrate.</p>
+                  </div>
+                  <div class="col-6 mb-4">
+                      <img src="{% static 'event.png' %}" class="mb-2">
+                      <h5 class="text">EVENT CATERING</h5>
+                      <p class="mt-sm-12">We make your events memorable with our flavours.</p>
+                    </div>
+                    <div class="col-6">
+                        <img src="{% static 'diet.png' %}" class="mb-2">
+                        <h5 class="text">DIET MENU</h5>
+                        <p class="mt-sm-12">Healthy does not mean starving yourself ever. Healthy means eating the right food in the right amount!</p>
+                    </div>
+                    <div class="col-6">
+                        <img src="{% static 'onlineorder.png' %}" class="mb-2">
+                        <h5 class="text">ONLINE ORDERING</h5>
+                        <p class="mt-sm-12">Laughter is brightest where food is best!</p>
+                    </div>
+                </div>
+                </div>
+            </div><br><br>
+            <h1 style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold;">PRIVATE DINING,<br>
+            CATERING & MORE...</h1><br>
+            <img src="{% static 'services.jpg' %}">
+            <!-- <div class="row">
+                <div class="services">
+                    <div class="col-md-12">
+                        <p style="margin-top: 80px;  font-weight: normal;">Any Queries?<br>
+                            Let's get in touch!</p>
+                            <form action="">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-12 mx-auto">
+                                            <input type="text" placeholder="Name"
+                                            class="form-control">
+                                        </div>
+                                        <div class="col-md-4 col-sm-12 mx-auto">
+                                            <input type="email" placeholder="Email"
+                                            class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-12">
+                                            <textarea rows="3" cols="20" placeholder="Message" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+             -->
+{% endblock %} 

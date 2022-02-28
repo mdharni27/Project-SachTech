@@ -1,0 +1,157 @@
+{% extends "header_footer.html" %}
+{% load static %}
+{% block content %}
+    <style>
+          .headingtext{
+    background-image:url("{% static 'headingpage.jpg' %}");
+    height:350px;
+    margin-top:120px;
+    background-size:cover;
+    color:white;
+}
+.inner{
+    background-color:rgba(0,0,0,0.3);
+    font-size:40px;
+    height:350px;
+    text-align: center;
+}
+        #test{
+            font-size:18px;
+        }
+        .testbg{
+            background-image:url("{% static 'testimonialbg.jpg' %}");
+            height:570px;
+            margin-top:-40px;
+            background-repeat:no-repeat;
+         }
+         .testbgtext{
+             background-color:rgba(0,0,0,0.4);
+             color:white;
+             height:570px;
+        }
+        .bg{
+            background-color:#cc0c0c;
+            height:500px;
+            width:100%;
+            color:white;
+            font-size:30px;
+        }
+        .btn:hover{
+          background-color: black;
+          transition:0.3s;
+        }
+        button{
+            height:50px;
+            background:#fcae1c;
+        }
+        .A a:visited{
+       color:red;
+      }
+      .a{
+        border-bottom:2px solid red;
+      }
+    </style>
+    {% if message %}
+    <script>
+        alert('{{message}}');
+    </script>
+    {% endif %}
+        <div class="headingtext">
+            <div class="inner">
+                <br><br>
+              <h1 style="font-family:fantasy;">TESTIMONIALS</h1>
+            <span style="color:yellow;font-size:18px;font-weight:bold"><a href="{% url 'home' %}" style="text-decoration:none;">HOME</a>|TESTIMONIALS</span>
+          </div>
+        </div>
+        <div class="container" style="margin-top:60px;">
+            <div class="row">
+            <div class="col-md-6">
+                <h1 style="font-family:fantasy;">CLIENTS' TESTIMONIALS</h1><br>
+                <span id="test">“I’ve been eating their business lunches for the past 7 years. 
+                Not even once have I had any unpleasant experience. And the dishes always taste fresh and good!”</span><br>
+                <span style="font-size:20px;letter-spacing:3px;font-weight:bold">-AMAYA</span><br><br><br>
+                <span id="test">“The restaurant offers a variety of coffee, even for the very picky customers! 
+                Just like me. I am a true fan of coffee and this place is now occupied by me.”</span> 
+                <span style="font-size:20px;letter-spacing:3px;font-weight:bold"><br>-MANOHAR</span><br><br><br>
+                <span id="test">“The best meal I have ever ever tried. I recommend you to try special thali. 
+                The tastiest thali in town. Many thanks to the waiter.”</span><br>          
+                <span style="font-size:20px;letter-spacing:3px;font-weight:bold">-SHWETA</span><br><br><br>
+                <span id="test">The prices are as good as the menu! Each time I spend less 
+                    money, than anywhere else and get a fresh, tasty, homemade dinner!”</span>
+                    <span style="font-size:20px;letter-spacing:3px;font-weight:bold"><br>-SAM</span>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'testimonialpic.jpg' %}">
+            </div>
+            </div>
+        </div><br><br>
+        <div class="container-fluid mt-5">
+            <div class="col-md-12">
+                <div class="testbg">
+                     <div class="testbgtext">
+                         <p style="font-family:fantasy;font-size:50px;padding-top:120px;padding-left:60px;">"TESTIMONIALS</p>
+                           <div class="carousel slide" data-ride="carousel" id="slider">
+                               <ul class="carousel-indicators">
+                                <li class="active" data-slide-to="0" data-target="#slider"></li>
+                                <li data-slide-to="1" data-target="#slider"></li>
+                                <li data-slide-to="2" data-target="#slider"></li>
+                               </ul>
+                             <div class="carousel-inner">
+                                 <div class="carousel-item active"> 
+                                     <div class="col-md-8">
+                                     <p style="font-size:30px; margin-left:30px;margin-top:70px;">"We got catering for our wedding.The food was delicious! The 
+                                         catering service was implecable..."                                    
+                                     </p>
+                                     <p style="color:yellow;margin-left:50px;font-size:25px;font-weight:bold">-ANANYA</p>
+                                     </div>
+                                  </div>
+                                                  
+                                  <div class="carousel-item"> 
+                                    <div class="col-md-8">
+                                    <p style="font-size:30px; margin-left:30px;margin-top:70px;">"The best place to enjoy the food..The resturant lives upto
+                                        expectations...."                                    
+                                    </p>
+                                    <p style="color:yellow;margin-left:50px;font-size:25px;font-weight:bold">-MANISH</p>
+                                    </div>       
+                                 </div>
+                                 <div class="carousel-item"> 
+                                    <div class="col-md-8">
+                                    <p style="font-size:30px; margin-left:30px;margin-top:70px;">"One of the best place to visit if you are a food lover.
+                                        Great Taste.Great Service.Reasonable Cost.Totally worth it...."                                    
+                                    </p>
+                                    <p style="color:yellow;margin-left:50px;font-size:25px;font-weight:bold">-GARIMA</p>
+                                    </div>       
+                                 </div>
+                                <a href="#slider" class="carousel-control-next" data-slide="next">
+                                   <span class="carousel-control-next-icon"></span>
+                               </a>
+                            
+                             </div>
+                         </div> 
+                        </div>          
+                 </div>
+            </div>
+       </div>
+       <div class="bg text-center mt-5">
+       <span style="font-family:cursive; color:yellow;position:relative;top:40px;">Have a question?Want to give feedback?</span><br>
+       <span style="font-family:fantasy;position:relative;top:50px;">LET'S GET IN TOUCH</span>
+       <form name="testimonial" class=form-group" method="post">
+           {% csrf_token %}
+           <div class="container" style="margin-top:80px;">
+               <div class="row">
+           <div class="col-md-6 col-sm-12">
+         <input type="text" placeholder="Name" name="name" class="form-control">
+         </div><br>
+         <div class="col-md-6 col-sm-12">
+            <input type="email" placeholder="Email" name="email" class="form-control">
+         </div>
+         <div class="col-md-12 col-sm-12 mt-2">
+             <textarea rows="4" cols="12" placeholder="Message" name="message" class="form-control"></textarea>
+         </div>
+         <button class="btn btn-lg mx-auto" type="submit" style="color:white;font-weight:bold;margin-top:20px;">SEND MESSAGE</button>
+         </div>
+
+         </div>
+         </form>
+        </div>
+    {% endblock %}

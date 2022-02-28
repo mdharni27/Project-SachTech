@@ -1,0 +1,21 @@
+.headingtext{
+    background-image:url("{% static 'headingpage.jpg' %}");
+    height:350px;
+    background-size:cover;
+    color:white;
+}
+.inner{
+    background-color:rgba(0,0,0,0.3);
+    font-size:40px;
+    height:350px;
+    text-align: center;
+}
+a:link{
+    color:yellow;
+}
+a:visited{
+    color:yellow;
+}
+a:hover{
+    color:white;
+}
